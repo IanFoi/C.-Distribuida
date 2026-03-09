@@ -24,10 +24,9 @@ class NodoVecinos(Nodo):
             Lo guarda en la variable identifiers.'''
         myName = self.vecinos
         for vecino in self.vecinos:
-            self.canal_salida.envia(self.myName, vecino)
+            self.canal_salida.envia(myName,self.vecinos)
 
         while True:
             identifiers_j = yield self.canal_entrada.get()
-            anterior = len(self.identifiers)
             self.identifiers.update(identifiers_j)
             print("El nodo ", self.id_nodo, "conocio a los vecinos de sus vecinos: ", self.identifiers)
