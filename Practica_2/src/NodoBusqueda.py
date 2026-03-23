@@ -22,6 +22,7 @@ class NodoBusqueda(Nodo):
     def busqueda(self,env,arr,elemento):
         '''Implementar'''
         if self.id_nodo == 0 :
+            self.arr = arr
             num_nodos = self.cantidad_nodos
             e = elemento
             tamano_arreglo = len(arr)//num_nodos
@@ -30,9 +31,11 @@ class NodoBusqueda(Nodo):
 
 
             for r + 1 in range(num_nodos - 1) :
-                self.canal_salida.envia(("BUSQUEDA",self.id_nodo,e),self.vecinos)
+                yield env.timeout(TICK)
+                self.canal_salida.envia(("BUSQUEDA_GO",self.id_nodo,e),self.vecinos)
             
             b_0 = busqueda_binaria(A_0,e)
+            
             for r in range(num_nodos - 1) :
                 self.canal_entrada.get()
             for r in range(num_nodos - 1) :

@@ -9,22 +9,6 @@ def cuadricula(arr,cantidad_nodos):
     return cuadricula
 
 
-def busqueda_binaria(arr,elemento):
-    """
-    Algoritmo secuencial de busqueda binaria, recibe un arreglo ordenado y un elemento a buscar, regresa True si el elemento se encuentra en el arreglo, False en caso contrario.
-    """
-
-    low = 0
-    high = len(arr) - 1
-    while low <= high:
-        mid = (low + high) // 2
-        if arr[mid] == elemento:
-            return True
-        elif arr[mid] < elemento:
-            low = mid + 1
-        else:
-            high = mid - 1
-    return False
 
 
 
