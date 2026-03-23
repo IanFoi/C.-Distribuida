@@ -36,9 +36,9 @@ class NodoBroadcast(Nodo):
 
 
         while True :
-            if self.seen_message == False:
-                self.mensaje = yield self.canal_entrada.get()
+            if self.seen_message == False :
                 self.seen_message = True  
+                self.mensaje = yield self.canal_entrada.get()
                 self.canal_salida.envia(self.mensaje,self.vecinos)
                 print("Nodo: ",self.id_nodo)
                 print("Mensaje recibido: ",self.mensaje)
